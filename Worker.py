@@ -4,6 +4,7 @@ from notion.client import *
 from notion.block import *
 from forex_python.converter import CurrencyRates
 
+#  Replace Values
 token_v2 =
 page_url =
 table_url =
@@ -12,6 +13,8 @@ client = NotionClient(token_v2=token_v2, start_monitoring=False)
 page = client.get_block(page_url)
 table = client.get_collection_view(table_url)
 
+#  To Allow For Weekends and Holidays:
+#  5 Days Are Read and Most Recent Taken
 now = datetime.now()
 end_date = now.strftime('%Y-%m-%d')
 start_date = (datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')
@@ -29,7 +32,8 @@ def most_recent_close(ticker, currency):
 
     return round(close, 3)
 
-
+#  Database is Read
+#  Values Caculated and Written
 def update_table():
     updated_count, updated_total = 0, 0
     for count, row in enumerate(table.collection.get_rows()):
@@ -40,7 +44,7 @@ def update_table():
         value = close * options
 
         row.Close = close
-        row.Percent = perc_change
+        row.Percent = round(perc_change, 3)
         row.Value = value
 
         updated_count += 1
@@ -49,7 +53,9 @@ def update_table():
 
     return updated_count, updated_total
 
-
+#  Page Description Updated
+#  Time and Date
+#  Updates out of Total 
 def update_desc():
     current_date_time = (datetime.now()).strftime("%H:%M - %d/%m/%y")
     updated_count, updated_total = update_table()
