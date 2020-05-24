@@ -44,7 +44,7 @@ def update_table():
         value = close * options
 
         row.Close = close
-        row.Percent = round(perc_change, 3)
+        row.Percent = round(perc_change, 1)
         row.Value = value
 
         updated_count += 1
@@ -55,7 +55,7 @@ def update_table():
 
 #  Page Description Updated
 #  Time and Date
-#  Updates out of Total 
+#  Updates out of Total
 def update_desc():
     current_date_time = (datetime.now()).strftime("%H:%M - %d/%m/%y")
     updated_count, updated_total = update_table()
