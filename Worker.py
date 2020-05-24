@@ -5,9 +5,9 @@ from notion.block import *
 from forex_python.converter import CurrencyRates
 
 #  Replace Values
-token_v2 =
-page_url =
-table_url =
+token_v2 = 'e03474309e8bb7fb926252aa585e05c6d57a1c29416b5c9ec561b755783763079168fe0f80cdf732c5f11db679e058e2dc369dc67a4083ded6a06e875962b983dae6d895f64c9ce1f1ffcc378fc3'
+page_url = 'https://www.notion.so/2847a8baf26d4498824f1e5f59117304?v=6629bdff68ae461dbf1b078191edff38'
+table_url = 'https://www.notion.so/2847a8baf26d4498824f1e5f59117304?v=6629bdff68ae461dbf1b078191edff38'
 
 client = NotionClient(token_v2=token_v2, start_monitoring=False)
 page = client.get_block(page_url)
@@ -44,7 +44,7 @@ def update_table():
         value = close * options
 
         row.Close = close
-        row.Percent = round(perc_change, 3)
+        row.Percent = round(perc_change, 1)
         row.Value = value
 
         updated_count += 1
@@ -55,7 +55,7 @@ def update_table():
 
 #  Page Description Updated
 #  Time and Date
-#  Updates out of Total 
+#  Updates out of Total
 def update_desc():
     current_date_time = (datetime.now()).strftime("%H:%M - %d/%m/%y")
     updated_count, updated_total = update_table()
