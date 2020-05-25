@@ -1,5 +1,5 @@
 # Notion - Asset Tracker 
-### Using Python and GCP Cloud Functions to Periodically Update Share Prices in Notion
+### Using Python and GCP Cloud Functions to Update Share Prices in Notion Periodically
 
 ![](notion.table.gif)
 
@@ -19,10 +19,10 @@ page_url =
 table_url =
 ```
 
-## 2. Setting up Cloud Functions: 
+## 2. Setting up Cloud Functions and Pub/Sub: 
 
 <img src="cloud-functions.gif" width="60%">
 
-## 1. Setting up Cloud Functions: 
+## 3. Setting up Cloud Scheduler: 
 
 <img src="scheduler.gif" width="60%">
