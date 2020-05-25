@@ -1,13 +1,17 @@
-## Update Share Prices in Notion Periodically
+## Notion Based Portfolio Tracker 
 ### Using Python,  Cloud Functions,  Pub/Sub and Cloud Scheduler  
 
 ![](notion.table.gif)
 
-## GCP Flow:
+## Background:
+
+After recently switching from Trello to Notion as my primary productivity tool, I wanted to see what was possible with Notions API. A basic portfolio tracker seemed like a good start. This project uses `notion-py` which is an unofficial Python client for Notions API. For the current asset values, I'm using `yfinance` which allows easy access to data from Yahoo Finance. One thing to note with this is that the ticker values used have to correspond with values on the platform.  
+
+## Google Cloud Platform Architecture:
 
 <img src="flow.png" width="80%">
 
-## Setup - 3 Steps: 
+# Getting Started: 
 
 ## 1. Updating Variables: 
 
