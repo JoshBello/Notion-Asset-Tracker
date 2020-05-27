@@ -67,5 +67,3 @@ def run(*args):
     update_desc()
     print(args)
 
-
-run()
